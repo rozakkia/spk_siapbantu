@@ -24,7 +24,7 @@ $index_alternatif = 0;
 foreach ($alternatif as $alt) {
     $index_kriteria = 1;
     foreach ($kriteria as $kr) {
-        if ($kr == 'C3' || $kr == 'C2') { //Cost
+        if ($kr == 'C2' || $kr == 'C3') { //Cost
             $r[$index_alternatif][$index_kriteria] = round(min(array_column($alternatif, $index_kriteria)) / $alternatif[$index_alternatif][$index_kriteria], 2);
         } elseif ($kr == 'C1' || $kr == 'C4' || $kr == 'C5' || $kr == 'C6' || $kr == 'C7') { //Benefit
             $r[$index_alternatif][$index_kriteria] = round($alternatif[$index_alternatif][$index_kriteria] / max(array_column($alternatif, $index_kriteria)), 2);
@@ -56,9 +56,3 @@ usort($nilai_v, function ($a, $b) {
     return $a['nilai'] <=> $b['nilai'];
 });
 
-echo '<h2>Rekomendasi</h2>';
-$rank = 1;
-foreach (array_reverse($nilai_v) as $v) {
-    echo 'Ranking '.$rank . ' alternatif ' . $v['alternatif'] . ' dengan nilai ' . $v['nilai'] . '<br>';
-    $rank++;
-}

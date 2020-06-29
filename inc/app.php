@@ -46,6 +46,12 @@ function readKartuKeluarga(){
     return $data;
 }
 
+function readKartuKeluarga_detail($id){
+    $sql = "select * from tbkartukeluarga where idkk=$id";
+    $data = query($sql);
+    return $data;
+}
+
 function saw_readKartuKeluarga(){
     $sql = "select idkk,pekerjaan,gaji,status_kk,jumlah_anggota,tanggungan_harian,tanggungan_hutang,kondisi_rumah from tbkartukeluarga";
     $data = query($sql);
